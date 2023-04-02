@@ -69,14 +69,7 @@ public class LetterButtons extends JPanel
    {
       this.color = c;
    }
-
-   @Override
-   public void paint(Graphics g)
-   {
-      super.paint(g);
-      g.setColor(this.color);
-      g.fillRect(0, 0, this.length, this.length);
-   }
+}
 
 /*
 public class LetterButtons extends JPanel
@@ -89,5 +82,30 @@ public class LetterButtons extends JPanel
       this.length = length;
       letterPanel.setPreferredSize(new Dimension(this.length, this.length));
       letterPanel.setBackground(Color.GRAY);
-    }*/
-}
+    }*/ 
+/*   package wordlegame.view;
+
+    import javax.swing.*;
+    import java.awt.Color;
+    import java.awt.Dimension;
+    import java.awt.Graphics;
+    
+    
+    public class LetterButtons extends JButton
+    {
+       private int length;
+       private Color color;
+       public LetterButtons(int length)
+       {
+          this.length = length;
+          //setPreferredSize(new Dimension(this.length, this.length));
+          this.setPreferredSize(new Dimension(this.length,this.length));
+          color = Color.GRAY; 
+          this.setForeground(color);
+        }
+    
+       public void setColor(Color c)
+       {
+          this.color = c;
+       }
+    } */

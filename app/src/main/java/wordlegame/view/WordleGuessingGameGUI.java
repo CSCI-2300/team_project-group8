@@ -19,7 +19,7 @@ public class WordleGuessingGameGUI
         mainPanel.setBackground(Color.BLACK);
         //mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setLayout(new BorderLayout(20, 5));  
-        mainPanel.setPreferredSize(new Dimension(500,700));
+        mainPanel.setPreferredSize(new Dimension(580,800));
 
 
         JLabel title = new JLabel("WORDLE");
@@ -36,7 +36,7 @@ public class WordleGuessingGameGUI
         mainPanel.add(userGuessBox, BorderLayout.SOUTH);
 
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        mainFrame.add(mainPanel);
+        mainFrame.getContentPane().add(mainPanel);
   
         mainFrame.pack();
         mainFrame.setVisible(true);

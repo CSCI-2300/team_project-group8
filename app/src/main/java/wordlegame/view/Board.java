@@ -10,19 +10,19 @@ public class Board extends JPanel
 
     public Board() 
     {
-        mainFrame = new JFrame();
+        //mainFrame = new JFrame();
 
-        mainPanel = new JPanel();
+        //mainPanel = new JPanel();
 
-        mainPanel.setPreferredSize(new Dimension(500,500));
-        mainPanel.setBackground(Color.BLACK);
+        this.setPreferredSize(new Dimension(500,500));
+        this.setBackground(Color.BLACK);
 
-        mainPanel.setLayout(new GridLayout(6, 5, 10, 10));
+        this.setLayout(new GridLayout(6, 5, 10, 10));
 
         for (int i = 0; i < 30; i ++)
         {
             LetterButtons letterButton = new LetterButtons(100);
-            mainPanel.add(letterButton);
+            this.add(letterButton);
             //JPanel secondPanel = new JPanel();
             //secondPanel.setBackground(Color.GRAY);
             //mainPanel.add(secondPanel);
@@ -32,10 +32,10 @@ public class Board extends JPanel
             //square.paintIcon(this, graphics, 25, 25);
         }
 
-        mainFrame.add(mainPanel);
+        //mainFrame.add(mainPanel);
 
-        mainFrame.pack();
-        mainFrame.setVisible(true);
+        //mainFrame.pack();
+        //mainFrame.setVisible(true);
     }
 
     /*
