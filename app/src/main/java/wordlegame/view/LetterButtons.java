@@ -1,4 +1,4 @@
-package wordlegame.view;
+/*package wordlegame.view;
 
 import java.awt.*;
 import javax.swing.*;
@@ -45,4 +45,35 @@ public class LetterButtons extends JButton implements Icon
         graphics.drawRect(x, y, width - 1, height - 1); 
     }
 
+}*/
+package wordlegame.view;
+
+import javax.swing.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+public class LetterButtons extends JPanel
+{
+   private int length;
+   private Color color;
+   public LetterButtons(int length)
+   {
+      this.length = length;
+      setPreferredSize(new Dimension(this.length, this.length));
+      color = Color.GRAY; 
+    }
+
+   public void setColor(Color c)
+   {
+      this.color = c;
+   }
+
+   @Override
+   public void paint(Graphics g)
+   {
+      super.paint(g);
+      g.setColor(this.color);
+      g.fillRect(0, 0, this.length, this.length);
+   }
 }
