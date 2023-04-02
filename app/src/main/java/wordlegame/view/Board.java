@@ -13,18 +13,26 @@ public class Board extends JPanel
         mainFrame = new JFrame();
         mainPanel = new JPanel();
 
-        mainPanel.setLayout(new GridLayout(6, 5, 20, 20));
+        mainPanel.setPreferredSize(new Dimension(500,500));
+        mainPanel.setBackground(Color.BLACK);
 
-        for (int i = 0; i < 30; i ++)
-        {
-            LetterButtons square = new LetterButtons(100,100);
-            mainPanel.add(square);
-        }
+        mainPanel.setLayout(new GridLayout(6, 5, 10, 10));
 
         mainFrame.add(mainPanel);
 
         mainFrame.pack();
         mainFrame.setVisible(true);
+
+        for (int i = 0; i < 30; i ++)
+        {
+            JPanel secondPanel = new JPanel();
+            secondPanel.setBackground(Color.GRAY);
+            mainPanel.add(secondPanel);
+            secondPanel.setPreferredSize(new Dimension(50,50));
+            LetterButtons square = new LetterButtons(50,50);
+            Graphics graphics = secondPanel.getGraphics();
+            square.paintIcon(this, graphics, 25, 25);
+        }
     }
 
     public static void main(String[] args)
