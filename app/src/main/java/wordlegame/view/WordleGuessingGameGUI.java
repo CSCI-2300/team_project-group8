@@ -28,6 +28,7 @@ public class WordleGuessingGameGUI
         title.setForeground(Color.WHITE);
 
         gameBoard = new Board();
+        mainPanel.add(gameBoard);
         userGuessBox = new UserGuessBox();
 
         mainPanel.add(title, BorderLayout.NORTH);

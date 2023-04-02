@@ -53,6 +53,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
+
 public class LetterButtons extends JPanel
 {
    private int length;
@@ -60,7 +61,7 @@ public class LetterButtons extends JPanel
    public LetterButtons(int length)
    {
       this.length = length;
-      setPreferredSize(new Dimension(this.length, this.length));
+      //setPreferredSize(new Dimension(this.length, this.length));
       color = Color.GRAY; 
     }
 
@@ -76,4 +77,17 @@ public class LetterButtons extends JPanel
       g.setColor(this.color);
       g.fillRect(0, 0, this.length, this.length);
    }
+
+/*
+public class LetterButtons extends JPanel
+{
+   JPanel letterPanel;
+   private int length;
+   public LetterButtons(int length)
+   {
+      letterPanel = new JPanel();
+      this.length = length;
+      letterPanel.setPreferredSize(new Dimension(this.length, this.length));
+      letterPanel.setBackground(Color.GRAY);
+    }*/
 }

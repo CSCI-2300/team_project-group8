@@ -5,12 +5,12 @@ import javax.swing.*;
 
 public class Board extends JPanel
 {
-    //JFrame mainFrame;
+    JFrame mainFrame;
     private JPanel mainPanel;
 
     public Board() 
     {
-        //mainFrame = new JFrame();
+        mainFrame = new JFrame();
 
         mainPanel = new JPanel();
 
@@ -19,14 +19,9 @@ public class Board extends JPanel
 
         mainPanel.setLayout(new GridLayout(6, 5, 10, 10));
 
-        //mainFrame.add(mainPanel);
-
-        //mainFrame.pack();
-        //mainFrame.setVisible(true);
-
         for (int i = 0; i < 30; i ++)
         {
-            LetterButtons letterButton = new LetterButtons(50);
+            LetterButtons letterButton = new LetterButtons(100);
             mainPanel.add(letterButton);
             //JPanel secondPanel = new JPanel();
             //secondPanel.setBackground(Color.GRAY);
@@ -36,9 +31,15 @@ public class Board extends JPanel
             //Graphics graphics = secondPanel.getGraphics();
             //square.paintIcon(this, graphics, 25, 25);
         }
+
+        mainFrame.add(mainPanel);
+
+        mainFrame.pack();
+        mainFrame.setVisible(true);
     }
 
-    /*public static void main(String[] args)
+    /*
+    public static void main(String[] args)
     {
         Board board = new Board();
     }*/
