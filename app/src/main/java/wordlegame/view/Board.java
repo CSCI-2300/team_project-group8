@@ -11,6 +11,7 @@ public class Board extends JPanel
     public Board() 
     {
         //mainFrame = new JFrame();
+
         mainPanel = new JPanel();
 
         mainPanel.setPreferredSize(new Dimension(500,500));
