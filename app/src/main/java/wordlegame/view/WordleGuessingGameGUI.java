@@ -23,7 +23,6 @@ public class WordleGuessingGameGUI
 
 
         JLabel title = new JLabel("WORDLE");
-        title.setHorizontalAlignment(JLabel.CENTER);
         title.setFont(new Font("Serif", Font.BOLD, 80));
         title.setForeground(Color.WHITE);
 
