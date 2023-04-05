@@ -46,7 +46,7 @@ public class LetterButtons extends JButton implements Icon
     }
 
 }*/
-package wordlegame.view;
+/*package wordlegame.view;
 
 import javax.swing.*;
 import java.awt.Color;
@@ -69,9 +69,9 @@ public class LetterButtons extends JPanel
    {
       this.color = c;
    }
-}
+}*/
 
-/*
+/* 
 public class LetterButtons extends JPanel
 {
    JPanel letterPanel;
@@ -83,7 +83,7 @@ public class LetterButtons extends JPanel
       letterPanel.setPreferredSize(new Dimension(this.length, this.length));
       letterPanel.setBackground(Color.GRAY);
     }*/ 
-/*   package wordlegame.view;
+   package wordlegame.view;
 
     import javax.swing.*;
     import java.awt.Color;
@@ -98,14 +98,15 @@ public class LetterButtons extends JPanel
        public LetterButtons(int length)
        {
           this.length = length;
-          //setPreferredSize(new Dimension(this.length, this.length));
           this.setPreferredSize(new Dimension(this.length,this.length));
           color = Color.GRAY; 
-          this.setForeground(color);
+          this.setBackground(color);
+          this.setOpaque(true);
+          this.setBorderPainted(false);
         }
     
        public void setColor(Color c)
        {
           this.color = c;
        }
-    } */
+    } 
