@@ -17,12 +17,11 @@ public class WordleGuessingGameGUI
 
         mainPanel = new JPanel();
         mainPanel.setBackground(Color.BLACK);
-        //mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setLayout(new BorderLayout(20, 5));  
         mainPanel.setPreferredSize(new Dimension(580,800));
 
 
-        JLabel title = new JLabel("WORDLE");
+        JLabel title = new JLabel("WORDLE", SwingConstants.CENTER);
         title.setFont(new Font("Serif", Font.BOLD, 80));
         title.setForeground(Color.WHITE);
 
