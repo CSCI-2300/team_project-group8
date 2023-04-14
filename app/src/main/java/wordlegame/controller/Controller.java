@@ -1,10 +1,11 @@
-package wordlegame;
+package wordlegame.controller;
 
 import wordlegame.model.HiddenWord;
 import wordlegame.view.CategorySelectionGUI;
 import wordlegame.view.WordleGuessingGameGUI;
+import wordlegame.GameController;
 
-public class Controller
+public class Controller implements GameController
 {
     HiddenWord hiddenWord;
     CategorySelectionGUI homeScreen;
@@ -14,6 +15,11 @@ public class Controller
     {
         this.hiddenWord = hiddenWord;
         this.homeScreen = new CategorySelectionGUI();
-        this.board = new WordleGuessingGameGUI();
+        this.board = new WordleGuessingGameGUI(this, hiddenWord);
+    }
+
+    public void getGuessedWord(String guessedWord)
+    {
+
     }
 }

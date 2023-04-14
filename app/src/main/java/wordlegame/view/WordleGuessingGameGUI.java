@@ -1,17 +1,29 @@
 package wordlegame.view;
 
+import wordlegame.GameObserver;
+
+import wordlegame.controller.Controller;
+import wordlegame.model.HiddenWord;
+
 import java.awt.*;
 import javax.swing.*;
 
-public class WordleGuessingGameGUI
+public class WordleGuessingGameGUI implements GameObserver
 {
     private JFrame mainFrame;
     private JPanel mainPanel;
     private Board gameBoard;
     private UserGuessBox userGuessBox;
 
-    public WordleGuessingGameGUI()
+    Controller controller;
+    HiddenWord hiddenWord;
+
+    public WordleGuessingGameGUI(Controller controller, HiddenWord hiddenWord)
     {
+        this.controller = controller;
+        this.hiddenWord = hiddenWord;
+        hiddenWord.register(this);
+
         mainFrame = new JFrame("Wordle");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -38,5 +50,10 @@ public class WordleGuessingGameGUI
   
         mainFrame.pack();
         mainFrame.setVisible(true);
+    }
+
+    public void update()
+    {
+
     }
 }
