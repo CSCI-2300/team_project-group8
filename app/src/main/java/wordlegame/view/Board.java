@@ -23,24 +23,11 @@ public class Board extends JPanel
         {
             LetterButtons letterButton = new LetterButtons(100);
             this.add(letterButton);
-            //JPanel secondPanel = new JPanel();
-            //secondPanel.setBackground(Color.GRAY);
-            //mainPanel.add(secondPanel);
-            //secondPanel.setPreferredSize(new Dimension(50,50));
-            //LetterButtons square = new LetterButtons(50,50);
-            //Graphics graphics = secondPanel.getGraphics();
-            //square.paintIcon(this, graphics, 25, 25);
+            
         }
 
-        //mainFrame.add(mainPanel);
-
-        //mainFrame.pack();
-        //mainFrame.setVisible(true);
+        
     }
 
-    /*
-    public static void main(String[] args)
-    {
-        Board board = new Board();
-    }*/
+    
 }
