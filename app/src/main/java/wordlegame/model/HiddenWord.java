@@ -15,6 +15,7 @@ public class HiddenWord
     ArrayList<Character> guessedLetters;
     ArrayList<String> colors;
     int guesses;
+    boolean winner;
 
     public HiddenWord()
     {
@@ -71,6 +72,8 @@ public class HiddenWord
 
         this.guesses--;
 
+        this.notifyObservers();
+
         this.resetDictionary();
     }
 
@@ -116,16 +119,23 @@ public class HiddenWord
     {
         if (this.colors.contains("GRAY") == false || this.colors.contains("YELLOW") == false)
         {
+            this.winner = true;
             return true;
         }
         else if (this.guesses == 0)
         {
+            this.winner = false;
             return true;
         }
         else
         {
             return false;
         }
+    }
+
+    public boolean isWinner()
+    {
+        return this.winner;
     }
 
     public void register(GameObserver observer)
