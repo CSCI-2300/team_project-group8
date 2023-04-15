@@ -12,12 +12,13 @@ public class UserGuessBox extends JPanel
 
     public UserGuessBox()
     {
+        this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         JButton enterButton = new JButton("enter");
         MaskFormatter wordleGuess = null;
         JFormattedTextField wordleGuessBox = null;
         try {
             wordleGuess = new MaskFormatter("UUUUU");
-            wordleGuess.setPlaceholderCharacter('X');
+            //wordleGuess.setPlaceholderCharacter('X');
         }
         catch (ParseException e)
         {
