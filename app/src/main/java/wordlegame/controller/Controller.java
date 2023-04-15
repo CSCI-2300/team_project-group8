@@ -18,8 +18,7 @@ public class Controller implements GameController
     public Controller(HiddenWord hiddenWord)
     {
         this.hiddenWord = hiddenWord;
-        this.homeScreen = new CategorySelectionGUI();
-        this.board = new WordleGuessingGameGUI(this, hiddenWord);
+        this.homeScreen = new CategorySelectionGUI(this);
     }
 
     public void getCategory(String category)
@@ -41,6 +40,8 @@ public class Controller implements GameController
         this.randomWord = generator.getRandomWord();
 
         hiddenWord.setHiddenWord(this.randomWord);
+
+        this.board = new WordleGuessingGameGUI(this, hiddenWord);
     }
 
     public void getUserGuess(String userGuess)

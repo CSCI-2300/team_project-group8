@@ -1,16 +1,22 @@
 package wordlegame.view;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import wordlegame.controller.*;
 
 import javax.swing.*;
 
-public class CategorySelectionGUI 
+public class CategorySelectionGUI implements ActionListener
 {
     ArrayList<JButton> categoryButtons = new ArrayList<JButton>();
-    public CategorySelectionGUI()
+    Controller controller;
+    JFrame mainFrame;
+    public CategorySelectionGUI(Controller controller)
     {
-        JFrame mainFrame = new JFrame("Wordle");
+        this.controller = controller;
+        mainFrame = new JFrame("Wordle");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel mainPanel = new JPanel();
@@ -51,6 +57,7 @@ public class CategorySelectionGUI
             categoryButton.setOpaque(true);
             categoryButton.setBorderPainted(false);
             categoryButton.setBackground(Color.YELLOW);
+            categoryButton.addActionListener(this);
             buttonPanel.add(categoryButton);
         }
 
@@ -70,4 +77,12 @@ public class CategorySelectionGUI
         mainFrame.setVisible(true);
     }
     
+
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        JButton jButton = (JButton)event.getSource();
+        this.controller.getCategory(jButton.getText());
+        mainFrame.setVisible(false);
+        mainFrame.dispose();
+    }
 }
