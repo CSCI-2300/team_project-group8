@@ -2,5 +2,6 @@ package wordlegame;
 
 public interface GameController
 {
-    public void getGuessedWord(String guessedWord);
+    public void getCategory(String category);
+    public void generateWord(String category);
 }

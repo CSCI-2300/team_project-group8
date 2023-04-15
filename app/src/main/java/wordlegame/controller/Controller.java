@@ -18,7 +18,7 @@ public class Controller implements GameController
         this.board = new WordleGuessingGameGUI(this, hiddenWord);
     }
 
-    public void getGuessedWord(String guessedWord)
+    public void getCategory(String category)
     {
 
     }
