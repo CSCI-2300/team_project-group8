@@ -4,18 +4,23 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 
+import wordlegame.controller.Controller;
+
 import java.awt.event.*;
 import java.text.ParseException;
 
-public class UserGuessBox extends JPanel
+public class UserGuessBox extends JPanel implements ActionListener
 {
+    JFormattedTextField wordleGuessBox = null;
+    JButton enterButton;
+    Controller controller;
 
-    public UserGuessBox()
+    public UserGuessBox(Controller controller)
     {
+        this.controller = controller;
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        JButton enterButton = new JButton("enter");
+        enterButton = new JButton("enter");
         MaskFormatter wordleGuess = null;
-        JFormattedTextField wordleGuessBox = null;
         try {
             wordleGuess = new MaskFormatter("UUUUU");
             //wordleGuess.setPlaceholderCharacter('X');
@@ -27,10 +32,22 @@ public class UserGuessBox extends JPanel
         wordleGuessBox = new JFormattedTextField(wordleGuess);
         wordleGuessBox.setPreferredSize( new Dimension( 5, 30 ) );
         wordleGuessBox.setVisible(true);
+        enterButton.addActionListener(this);
         this.add(wordleGuessBox);
         this.add(enterButton);
         this.setPreferredSize(new Dimension(10, 30));
         this.setBackground(Color.BLACK);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        String userGuess;
+        userGuess = this.wordleGuessBox.getText();
+        this.controller.getUserGuess(userGuess);
+        System.out.println(userGuess);
+
+        wordleGuessBox.setText("");
+        this.repaint();
     }
 
 }
