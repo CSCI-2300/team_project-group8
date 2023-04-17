@@ -29,6 +29,13 @@ public class HiddenWord
         this.createDictionary();
     }
 
+    //i added this method
+    public String getHiddenWord() 
+    {
+        return this.hiddenWord;
+    }
+    
+
     public void createDictionary()
     {
         this.dictionary = new HashMap<Character, Integer>();
@@ -77,6 +84,48 @@ public class HiddenWord
         this.resetDictionary();
     }
 
+public void checkGreen()
+{
+    for (int i = 0; i < this.guessedWord.length(); i++)
+    {
+        if (this.guessedWord.charAt(i) == this.hiddenWord.charAt(i))
+        {
+            this.colors.set(i, "GREEN");
+        }
+    }
+}
+
+public void checkYellow()
+{
+    for (int i = 0; i < this.guessedWord.length(); i++)
+    {
+        char guessedLetter = this.guessedWord.charAt(i);
+        if (this.dictionary.keySet().contains(guessedLetter)) 
+        {
+            int occurrences = this.dictionary.get(guessedLetter);
+            if (occurrences > 0) {
+                if (guessedLetter == this.hiddenWord.charAt(i)) 
+                {
+                    this.colors.set(i, "GREEN");
+                } 
+                else 
+                {
+                    this.colors.set(i, "YELLOW");
+                }
+                this.dictionary.put(guessedLetter, occurrences - 1); //one occurance has been used
+            } 
+            else if (this.colors.get(i).equals("GRAY")) 
+            {
+                this.colors.set(i, "GRAY");
+            }
+        } 
+        else if (this.colors.get(i).equals("GRAY")) 
+        {
+            this.colors.set(i, "GRAY");
+        }
+    }
+}
+    /* 
     public void checkGreen()
     {
         for (int i = 0; i < this.guessedWord.length(); i++)
@@ -99,6 +148,8 @@ public class HiddenWord
             }
         }
     }
+    */
+    
 
     public void resetDictionary()
     {

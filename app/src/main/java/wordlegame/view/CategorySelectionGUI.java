@@ -85,4 +85,6 @@ public class CategorySelectionGUI implements ActionListener
         mainFrame.setVisible(false);
         mainFrame.dispose();
     }
+
+    
 }

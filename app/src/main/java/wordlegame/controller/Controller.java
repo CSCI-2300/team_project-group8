@@ -6,6 +6,8 @@ import wordlegame.view.WordleGuessingGameGUI;
 import wordlegame.GameController;
 import wordlegame.model.RandomWordGenerator;
 
+
+
 public class Controller implements GameController
 {
     HiddenWord hiddenWord;
@@ -44,8 +46,12 @@ public class Controller implements GameController
         this.board = new WordleGuessingGameGUI(this, hiddenWord);
     }
 
+   
+
     public void getUserGuess(String userGuess)
     {
         this.hiddenWord.checkGuess(userGuess);
     }
+
+    
 }
