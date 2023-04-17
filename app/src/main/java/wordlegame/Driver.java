@@ -7,8 +7,6 @@ public class Driver {
 
     public static void main(String[] args) {
 
-        HiddenWord hiddenWord = new HiddenWord();
-
-        Controller controller = new Controller(hiddenWord);
+        Controller controller = new Controller();
     }
 }

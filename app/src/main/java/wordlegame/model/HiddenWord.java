@@ -19,14 +19,13 @@ public class HiddenWord
 
     public HiddenWord()
     {
-
     }
 
     public void setHiddenWord(String hiddenWord)
     {
         System.out.println(hiddenWord);
         this.hiddenWord = hiddenWord.toUpperCase();
-        this.guesses = 6;
+        guesses = 0;
         this.createDictionary();
     }
 
@@ -63,6 +62,7 @@ public class HiddenWord
 
     public void checkGuess(String guessedWord)
     {
+        this.guesses += 1;
         this.guessedWord = guessedWord.toUpperCase();
         this.guessedLetters = new ArrayList<Character>();
         this.colors = new ArrayList<String>();
@@ -75,8 +75,6 @@ public class HiddenWord
 
         this.checkGreen();
         this.checkYellow();
-
-        this.guesses--;
 
         this.notifyObservers();
 
@@ -143,12 +141,12 @@ public void checkYellow()
 
     public boolean isGameOver()
     {
-        if (this.colors.contains("GRAY") == false || this.colors.contains("YELLOW") == false)
+        if (this.colors.contains("GRAY") == false && this.colors.contains("YELLOW") == false)
         {
             this.winner = true;
             return true;
         }
-        else if (this.guesses == 0)
+        else if (this.guesses == 6)
         {
             this.winner = false;
             return true;
@@ -162,6 +160,11 @@ public void checkYellow()
     public boolean isWinner()
     {
         return this.winner;
+    }
+
+    public int getGuesses()
+    {
+        return this.guesses;
     }
 
     public void register(GameObserver observer)

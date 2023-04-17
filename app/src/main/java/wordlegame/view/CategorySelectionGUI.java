@@ -83,7 +83,5 @@ public class CategorySelectionGUI implements ActionListener
         this.controller.getCategory(jButton.getText());
         mainFrame.setVisible(false);
         mainFrame.dispose();
-    }
-
-    
+    } 
 }

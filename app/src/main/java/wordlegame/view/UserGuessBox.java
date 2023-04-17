@@ -49,5 +49,4 @@ public class UserGuessBox extends JPanel implements ActionListener
         wordleGuessBox.setText("");
         this.repaint();
     }
-
 }

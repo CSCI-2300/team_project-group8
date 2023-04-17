@@ -1,22 +1,14 @@
 package wordlegame.view;
 
 import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+
 
 public class LetterButtons extends JPanel 
 {
    private int length;
    private Color color;
    Board gameBoard; 
-   private JButton button;
    GridBagConstraints gbc;
 
    public LetterButtons(int length, Board gameboard)   

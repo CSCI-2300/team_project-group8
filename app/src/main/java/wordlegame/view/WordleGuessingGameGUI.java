@@ -64,22 +64,13 @@ public class WordleGuessingGameGUI implements GameObserver
     {
         ArrayList<Character> letters = hiddenWord.getGuessedLetters();
         ArrayList<String> colors = hiddenWord.getColors();
-        gameBoard.displayWord(letters,colors);
-        mainPanel.repaint();
-    }
-
-    public void displayWord()
-    {
-        ArrayList<Character> letters = this.hiddenWord.getGuessedLetters();
-        ArrayList<String> colors = this.hiddenWord.getColors();
-
-        for (int i = 0; i < letters.size(); i++) {
-            char letter = letters.get(i);
-            String color = colors.get(i);
-            System.out.print(color + letter + "\u001B[0m ");
+        int guesses = hiddenWord.getGuesses();
+        gameBoard.displayWord(letters,colors,guesses);
+        if (hiddenWord.isGameOver())
+        {
+            userGuessBox.setVisible(false);
+            this.gameOver();
         }
-    
-        System.out.println();
-    }
-    
+        mainPanel.repaint();
+    }  
 }

@@ -15,9 +15,9 @@ public class Controller implements GameController
     RandomWordGenerator generator;
     String randomWord;
 
-    public Controller(HiddenWord hiddenWord)
+    public Controller()
     {
-        this.hiddenWord = hiddenWord;
+        this.hiddenWord = new HiddenWord(); 
         this.homeScreen = new CategorySelectionGUI(this);
     }
 
