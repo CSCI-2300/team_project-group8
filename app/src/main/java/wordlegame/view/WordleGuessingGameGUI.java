@@ -56,8 +56,16 @@ public class WordleGuessingGameGUI implements GameObserver
 
     public void gameOver() 
     {
-        JOptionPane.showMessageDialog(mainFrame, "Game over! The word was " + hiddenWord.getHiddenWord() + ".", "Game over", JOptionPane.INFORMATION_MESSAGE);
-        System.exit(0);
+        if (hiddenWord.isWinner())
+        {
+            JOptionPane.showMessageDialog(mainFrame, "You Win! The word was " + hiddenWord.getHiddenWord() + ".", "Game over", JOptionPane.INFORMATION_MESSAGE);
+            System.exit(0);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(mainFrame, "You Lose! The word was " + hiddenWord.getHiddenWord() + ".", "Game over", JOptionPane.INFORMATION_MESSAGE);
+            System.exit(0);
+        }
     }
     
     public void update()
