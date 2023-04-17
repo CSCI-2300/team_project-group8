@@ -21,9 +21,9 @@ public class UserGuessBox extends JPanel implements ActionListener
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         enterButton = new JButton("enter");
         MaskFormatter wordleGuess = null;
-        try {
+        try 
+        {
             wordleGuess = new MaskFormatter("UUUUU");
-            //wordleGuess.setPlaceholderCharacter('X');
         }
         catch (ParseException e)
         {

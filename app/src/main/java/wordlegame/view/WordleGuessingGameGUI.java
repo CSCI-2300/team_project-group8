@@ -53,12 +53,6 @@ public class WordleGuessingGameGUI implements GameObserver
         mainFrame.pack();
         mainFrame.setVisible(true);
     }
-    /*
-     * public void update() 
-     * {
-     * 
-     * }
-     */
 
     public void gameOver() 
     {
@@ -66,49 +60,6 @@ public class WordleGuessingGameGUI implements GameObserver
         System.exit(0);
     }
     
-     /* 
-     public void update() {
-        ArrayList<Character> guessedLetters = hiddenWord.getGuessedLetters();
-        ArrayList<String> colors = hiddenWord.getColors();
-    
-        for (int i = 0; i < guessedLetters.size(); i++) {
-            char letter = guessedLetters.get(i);
-            String color = colors.get(i);
-            gameBoard.getLetterButtons().get(i).setText(String.valueOf(letter));
-            gameBoard.getLetterButtons().get(i).setColor(color);
-        }
-    
-        if (hiddenWord.isGameOver()) {
-            gameOver();
-        }
-    }
-    */
-    
-     
-     /*public void update() 
-     {
-        ArrayList<Character> letters = hiddenWord.getGuessedLetters();
-        ArrayList<String> colors = hiddenWord.getColors();
-    
-        StringBuilder sb = new StringBuilder(); //i used string builder it basically just appends chars or strings to it and is mutable
-        for (int i = 0; i < letters.size(); i++) 
-        {
-            char letter = letters.get(i);
-            String color = colors.get(i);
-            //i found this html thing online the first on sets the color and the html at the end closes the html formatting
-            sb.append("<html><span style='color:" + color + "'>" + letter + "</span></html>");
-
-        }
-    
-        JLabel hiddenWordLabel = new JLabel(sb.toString());
-        hiddenWordLabel.setFont(new Font("Serif", Font.PLAIN, 40));
-        hiddenWordLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    
-        mainPanel.add(hiddenWordLabel, BorderLayout.SOUTH);
-        mainPanel.revalidate();
-        mainPanel.repaint();
-    }*/
-
     public void update()
     {
         ArrayList<Character> letters = hiddenWord.getGuessedLetters();
@@ -116,8 +67,6 @@ public class WordleGuessingGameGUI implements GameObserver
         gameBoard.displayWord(letters,colors);
         mainPanel.repaint();
     }
-    
-    
 
     public void displayWord()
     {
@@ -132,27 +81,5 @@ public class WordleGuessingGameGUI implements GameObserver
     
         System.out.println();
     }
-
-    //modified
-    //public void update() {
-        //ArrayList<Character> guessedLetters = hiddenWord.getGuessedLetters();
-        //ArrayList<String> colors = hiddenWord.getColors();
-    
-        //for (int i = 0; i < guessedLetters.size(); i++) {
-           // Character letter = guessedLetters.get(i);
-            //String color = colors.get(i);
-    
-          // for (LetterButtons button : gameBoard.getButtons()) {
-                //if (button.getText().charAt(0) == letter) {
-                //   button.setColor(color);
-                   // button.setText(letter.toString());
-             //   }
-           // }
-      //  }
-    
-       // if (hiddenWord.isGameOver()) {
-          //  gameOver();
-       // }
-   // }
     
 }

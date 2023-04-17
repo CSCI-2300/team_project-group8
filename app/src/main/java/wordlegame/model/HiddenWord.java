@@ -30,13 +30,11 @@ public class HiddenWord
         this.createDictionary();
     }
 
-    //i added this method
     public String getHiddenWord() 
     {
         return this.hiddenWord;
     }
     
-
     public void createDictionary()
     {
         this.dictionary = new HashMap<Character, Integer>();
@@ -104,7 +102,8 @@ public void checkYellow()
         if (this.dictionary.keySet().contains(guessedLetter)) 
         {
             int occurrences = this.dictionary.get(guessedLetter);
-            if (occurrences > 0) {
+            if (occurrences > 0) 
+            {
                 if (guessedLetter == this.hiddenWord.charAt(i)) 
                 {
                     this.colors.set(i, "GREEN");
@@ -126,32 +125,7 @@ public void checkYellow()
         }
     }
 }
-    /* 
-    public void checkGreen()
-    {
-        for (int i = 0; i < this.guessedWord.length(); i++)
-        {
-            if (this.guessedWord.charAt(i) == this.hiddenWord.charAt(i))
-            {
-                this.colors.set(i, "GREEN");
-            }
-        }
-    }
-
-    public void checkYellow()
-    {
-        for (int i = 0; i < this.guessedWord.length(); i++)
-        {
-            if (this.dictionary.keySet().contains(this.guessedWord.charAt(i)) && this.colors.get(i) == "GRAY" && this.dictionary.get(this.guessedWord.charAt(i)) != 0)
-            {
-                this.colors.set(i, "YELLOW");
-                this.dictionary.replace(this.hiddenWord.charAt(i), this.dictionary.get(this.hiddenWord.charAt(i))-1);
-            }
-        }
-    }
-    */
     
-
     public void resetDictionary()
     {
         this.createDictionary();

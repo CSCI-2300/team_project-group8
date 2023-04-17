@@ -61,7 +61,6 @@ public class CategorySelectionGUI implements ActionListener
             buttonPanel.add(categoryButton);
         }
 
-
         titlePanel.add(title);
         mainPanel.add(titlePanel);
         instructionPanel.add(instructions);
@@ -77,9 +76,9 @@ public class CategorySelectionGUI implements ActionListener
         mainFrame.setVisible(true);
     }
     
-
     @Override
-    public void actionPerformed(ActionEvent event) {
+    public void actionPerformed(ActionEvent event) 
+    {
         JButton jButton = (JButton)event.getSource();
         this.controller.getCategory(jButton.getText());
         mainFrame.setVisible(false);
