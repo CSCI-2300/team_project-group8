@@ -12,10 +12,12 @@ public class Board extends JPanel
     private JPanel mainPanel;
     //new
     ArrayList<LetterButtons> letterButtons;
+    int attempts;
 
     public Board() 
     {
         //new
+        attempts = 0;
         letterButtons = new ArrayList<LetterButtons>();
 
         //mainFrame = new JFrame();
@@ -30,6 +32,7 @@ public class Board extends JPanel
             //need to modify here but cant due to constructor 
             LetterButtons letterButton = new LetterButtons(100, this);
             this.add(letterButton);
+            this.letterButtons.add(letterButton); //added this
             
         }
         
@@ -87,6 +90,33 @@ public class Board extends JPanel
    public ArrayList<LetterButtons> getLetterButtons() 
    {
         return letterButtons;
+   }
+
+   public void displayWord(ArrayList<Character> letters, ArrayList<String> colors)
+   {
+
+    //StringBuilder sb = new StringBuilder(); //i used string builder it basically just appends chars or strings to it and is mutable
+        for (int i = 0; i < letters.size(); i++) 
+        {
+            char letter = letters.get(i);
+            String color = colors.get(i);
+            String stringLetter =String.valueOf(letter);
+            letterButtons.get(i+5*attempts).setText(stringLetter);
+            letterButtons.get(i+5*attempts).setColor(color);
+            //i found this html thing online the first on sets the color and the html at the end closes the html formatting
+            //sb.append("<html><span style='color:" + color + "'>" + letter + "</span></html>");
+
+        }
+        attempts += 1;
+    
+        //JLabel hiddenWordLabel = new JLabel(sb.toString());
+        //hiddenWordLabel.setFont(new Font("Serif", Font.PLAIN, 40));
+        //hiddenWordLabel.setHorizontalAlignment(SwingConstants.CENTER);
+    
+        //mainPanel.add(hiddenWordLabel, BorderLayout.SOUTH);
+        //mainPanel.revalidate();
+        this.repaint();
+
    }
 
 

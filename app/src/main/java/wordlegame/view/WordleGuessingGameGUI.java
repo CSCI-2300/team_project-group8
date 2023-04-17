@@ -85,7 +85,7 @@ public class WordleGuessingGameGUI implements GameObserver
     */
     
      
-     public void update() 
+     /*public void update() 
      {
         ArrayList<Character> letters = hiddenWord.getGuessedLetters();
         ArrayList<String> colors = hiddenWord.getColors();
@@ -106,6 +106,14 @@ public class WordleGuessingGameGUI implements GameObserver
     
         mainPanel.add(hiddenWordLabel, BorderLayout.SOUTH);
         mainPanel.revalidate();
+        mainPanel.repaint();
+    }*/
+
+    public void update()
+    {
+        ArrayList<Character> letters = hiddenWord.getGuessedLetters();
+        ArrayList<String> colors = hiddenWord.getColors();
+        gameBoard.displayWord(letters,colors);
         mainPanel.repaint();
     }
     

@@ -24,6 +24,7 @@ public class HiddenWord
 
     public void setHiddenWord(String hiddenWord)
     {
+        System.out.println(hiddenWord);
         this.hiddenWord = hiddenWord.toUpperCase();
         this.guesses = 6;
         this.createDictionary();
