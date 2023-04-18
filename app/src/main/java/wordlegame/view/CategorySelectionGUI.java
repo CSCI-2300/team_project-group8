@@ -43,6 +43,7 @@ public class CategorySelectionGUI implements ActionListener
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.BLACK);
+        buttonPanel.setPreferredSize(new Dimension(300, 300));
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 10));
 
         JButton animalsButton = new JButton("Animals");
