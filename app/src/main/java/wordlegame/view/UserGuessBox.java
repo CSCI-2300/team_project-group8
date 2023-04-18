@@ -43,16 +43,21 @@ public class UserGuessBox extends JPanel implements ActionListener, KeyListener
     public void resetEntry()
     {
         String userGuess = wordleGuessBox.getText().trim();
+
+        wordleGuessBox.setValue(null); 
+        wordleGuessBox.requestFocus();
+        wordleGuessBox.getCaret().setDot(0);
+
         if (userGuess.isEmpty()) 
+        {
+            return;
+        }
+        else if (userGuess.length() != 5)
         {
             return;
         }
 
         this.passGuess(userGuess);
-        
-        wordleGuessBox.setValue(null); 
-        wordleGuessBox.requestFocus();
-        wordleGuessBox.getCaret().setDot(0);
     }
 
     public void passGuess(String guess)
