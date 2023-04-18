@@ -47,6 +47,10 @@ public class UserGuessBox extends JPanel implements ActionListener
         System.out.println(userGuess);
 
         wordleGuessBox.setText("");
+        wordleGuessBox.requestFocus();
+        wordleGuessBox.setCaretPosition(wordleGuessBox.getText().length());
+        wordleGuessBox.setSelectionStart(0); 
+        wordleGuessBox.setSelectionEnd(0);
         this.repaint();
     }
 }
