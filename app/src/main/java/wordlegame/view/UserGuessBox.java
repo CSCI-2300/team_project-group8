@@ -38,7 +38,7 @@ public class UserGuessBox extends JPanel implements ActionListener
         this.setPreferredSize(new Dimension(10, 30));
         this.setBackground(Color.BLACK);
     }
-
+/* 
     @Override
     public void actionPerformed(ActionEvent event) {
         String userGuess;
@@ -48,9 +48,26 @@ public class UserGuessBox extends JPanel implements ActionListener
 
         wordleGuessBox.setText("");
         wordleGuessBox.requestFocus();
-        wordleGuessBox.setCaretPosition(wordleGuessBox.getText().length());
-        wordleGuessBox.setSelectionStart(0); 
-        wordleGuessBox.setSelectionEnd(0);
-        this.repaint();
+        wordleGuessBox.getCaret().setDot(0);
     }
+    */
+
+    
+    @Override
+    public void actionPerformed(ActionEvent event) 
+    {
+        String userGuess = wordleGuessBox.getText().trim();
+        if (userGuess.isEmpty()) 
+        {
+            return;
+        }
+
+        controller.getUserGuess(userGuess);
+        System.out.println(userGuess);
+        
+        wordleGuessBox.setValue(null); 
+        wordleGuessBox.requestFocus();
+        wordleGuessBox.getCaret().setDot(0);
+}
+
 }
