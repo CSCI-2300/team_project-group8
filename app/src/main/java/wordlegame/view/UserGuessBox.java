@@ -9,7 +9,7 @@ import wordlegame.controller.Controller;
 import java.awt.event.*;
 import java.text.ParseException;
 
-public class UserGuessBox extends JPanel implements ActionListener
+public class UserGuessBox extends JPanel implements ActionListener, KeyListener
 {
     JFormattedTextField wordleGuessBox = null;
     JButton enterButton;
@@ -32,29 +32,15 @@ public class UserGuessBox extends JPanel implements ActionListener
         wordleGuessBox = new JFormattedTextField(wordleGuess);
         wordleGuessBox.setPreferredSize( new Dimension( 5, 30 ) );
         wordleGuessBox.setVisible(true);
+        wordleGuessBox.addKeyListener(this);
         enterButton.addActionListener(this);
         this.add(wordleGuessBox);
         this.add(enterButton);
         this.setPreferredSize(new Dimension(10, 30));
         this.setBackground(Color.BLACK);
     }
-/* 
-    @Override
-    public void actionPerformed(ActionEvent event) {
-        String userGuess;
-        userGuess = this.wordleGuessBox.getText();
-        this.controller.getUserGuess(userGuess);
-        System.out.println(userGuess);
 
-        wordleGuessBox.setText("");
-        wordleGuessBox.requestFocus();
-        wordleGuessBox.getCaret().setDot(0);
-    }
-    */
-
-    
-    @Override
-    public void actionPerformed(ActionEvent event) 
+    public void resetEntry()
     {
         String userGuess = wordleGuessBox.getText().trim();
         if (userGuess.isEmpty()) 
@@ -62,12 +48,38 @@ public class UserGuessBox extends JPanel implements ActionListener
             return;
         }
 
-        controller.getUserGuess(userGuess);
-        System.out.println(userGuess);
+        this.passGuess(userGuess);
         
         wordleGuessBox.setValue(null); 
         wordleGuessBox.requestFocus();
         wordleGuessBox.getCaret().setDot(0);
-}
+    }
+
+    public void passGuess(String guess)
+    {
+        controller.getUserGuess(guess);
+        System.out.println(guess);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent event) 
+    {
+        resetEntry();
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) 
+    {
+        if (e.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            this.resetEntry();  
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent arg0) {}
+
+    @Override
+    public void keyTyped(KeyEvent arg0) {}
 
 }
