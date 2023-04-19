@@ -22,7 +22,6 @@ public class Board extends JPanel
         this.setLayout(new GridLayout(6, 5, 10, 10));
         for (int i = 0; i < 30; i ++)
         {
-            //need to modify here but cant due to constructor 
             LetterButtons letterButton = new LetterButtons(100, this);
             this.add(letterButton);
             this.letterButtons.add(letterButton); 
