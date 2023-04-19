@@ -111,39 +111,6 @@ public void checkYellow()
         } 
     }
 }
-
-/*
-public void checkYellow()
-{
-    for (int i = 0; i < this.guessedWord.length(); i++)
-    {
-        char guessedLetter = this.guessedWord.charAt(i);
-        if (this.dictionary.keySet().contains(guessedLetter)) 
-        {
-            int occurrences = this.dictionary.get(guessedLetter);
-            if (occurrences > 0) 
-            {
-                if (guessedLetter == this.hiddenWord.charAt(i)) 
-                {
-                    this.colors.set(i, "GREEN");
-                } 
-                else 
-                {
-                    this.colors.set(i, "YELLOW");
-                }
-                this.dictionary.put(guessedLetter, occurrences - 1); //one occurance has been used
-            } 
-            else if (this.colors.get(i).equals("GRAY")) 
-            {
-                this.colors.set(i, "GRAY");
-            }
-        } 
-        else if (this.colors.get(i).equals("GRAY")) 
-        {
-            this.colors.set(i, "GRAY");
-        }
-    }
-}*/
     
     public void resetDictionary()
     {
