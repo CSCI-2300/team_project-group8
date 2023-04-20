@@ -19,7 +19,7 @@ public class LetterButtons extends JPanel
       setBackground(color);
       setLayout(new GridBagLayout());
       gbc = new GridBagConstraints();
-    }
+   }
 
    public void setColor(Color c)
    {
