@@ -14,6 +14,7 @@ public class HiddenWord
     HashMap<Character, Integer> dictionary;
     ArrayList<Character> guessedLetters;
     ArrayList<String> colors;
+    boolean valid = false;
     int guesses;
     boolean winner;
 
@@ -61,6 +62,12 @@ public class HiddenWord
 
     public void checkGuess(String guessedWord)
     {
+        this.validateGuess(guessedWord);
+        if (!valid)
+        {
+            this.notifyObservers();
+            return;
+        }
         this.guesses += 1;
         this.guessedWord = guessedWord.toUpperCase();
         this.guessedLetters = new ArrayList<Character>();
@@ -151,6 +158,23 @@ public class HiddenWord
     public int getGuesses()
     {
         return this.guesses;
+    }
+
+    public void validateGuess(String userGuess)
+    {
+        if (userGuess.length() != 5)
+        {
+            this.valid = false;
+        }
+        else
+        {
+            this.valid = true;
+        }
+    }
+
+    public boolean getGuessStatus()
+    {
+        return this.valid;
     }
 
     public void register(GameObserver observer)

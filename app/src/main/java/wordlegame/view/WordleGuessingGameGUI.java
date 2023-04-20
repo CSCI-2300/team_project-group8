@@ -73,12 +73,19 @@ public class WordleGuessingGameGUI implements GameObserver
         ArrayList<Character> letters = hiddenWord.getGuessedLetters();
         ArrayList<String> colors = hiddenWord.getColors();
         int guesses = hiddenWord.getGuesses();
-        gameBoard.displayWord(letters,colors,guesses);
-        if (hiddenWord.isGameOver())
+        if (hiddenWord.getGuessStatus())
+        {   
+            gameBoard.displayWord(letters,colors,guesses);
+            if (hiddenWord.isGameOver())
+            {
+                userGuessBox.setVisible(false);
+                this.gameOver();
+            }
+        }  
+        else if (!hiddenWord.getGuessStatus())
         {
-            userGuessBox.setVisible(false);
-            this.gameOver();
+            JOptionPane.showMessageDialog(mainFrame, "Please enter a 5 letter word", "Can't accept guess", JOptionPane.INFORMATION_MESSAGE);
         }
         mainPanel.repaint();
-    }  
+    }
 }

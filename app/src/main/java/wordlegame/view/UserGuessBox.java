@@ -48,15 +48,6 @@ public class UserGuessBox extends JPanel implements ActionListener, KeyListener
         wordleGuessBox.requestFocus();
         wordleGuessBox.getCaret().setDot(0);
 
-        if (userGuess.isEmpty()) 
-        {
-            return;
-        }
-        else if (userGuess.length() != 5)
-        {
-            return;
-        }
-
         this.passGuess(userGuess);
     }
 
