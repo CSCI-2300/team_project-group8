@@ -52,17 +52,24 @@ public class WordleGuessingGameGUI implements GameObserver
   
         mainFrame.pack();
         mainFrame.setVisible(true);
+
+        
     }
 
     public void gameOver() 
     {
         if (hiddenWord.isWinner())
         {
+
+            StatsGUI statsGUI = new StatsGUI();
+            statsGUI.setVisible(true);
             JOptionPane.showMessageDialog(mainFrame, "You Win! The word was " + hiddenWord.getHiddenWord() + ".", "Game over", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
         else
         {
+            StatsGUI statsGUI = new StatsGUI();
+            statsGUI.setVisible(true);
             JOptionPane.showMessageDialog(mainFrame, "You Lose! The word was " + hiddenWord.getHiddenWord() + ".", "Game over", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
