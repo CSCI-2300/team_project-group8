@@ -7,6 +7,8 @@ import wordlegame.GameController;
 import wordlegame.model.RandomWordGenerator;
 import wordlegame.model.GameStatistics;
 
+import java.io.IOException;
+
 public class Controller implements GameController
 {
     HiddenWord hiddenWord;
@@ -60,5 +62,15 @@ public class Controller implements GameController
     public void incrementGamesWon()
     {
         gameStatistics.incrementGamesWon();
+    }
+
+    public void loadStatistics()
+    {
+        gameStatistics.loadStatistics();
+    }
+
+    public void uploadStatistics()
+    {
+        gameStatistics.uploadStatistics();
     }
 }

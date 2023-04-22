@@ -6,4 +6,6 @@ public interface GameController
     public void getUserGuess(String userGuess);
     public void incrementGamesPlayed();
     public void incrementGamesWon();
+    public void loadStatistics();
+    public void uploadStatistics();
 }

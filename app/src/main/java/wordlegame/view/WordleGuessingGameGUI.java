@@ -33,8 +33,6 @@ public class WordleGuessingGameGUI implements GameObserver
         this.gameStatistics = gameStatistics;
         hiddenWord.register(this);
 
-
-
         mainFrame = new JFrame("Wordle");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -42,7 +40,6 @@ public class WordleGuessingGameGUI implements GameObserver
         mainPanel.setBackground(Color.BLACK);
         mainPanel.setLayout(new BorderLayout(20, 5));  
         mainPanel.setPreferredSize(new Dimension(580,800));
-
 
         JLabel title = new JLabel("WORDLE", SwingConstants.CENTER);
         title.setFont(new Font("Serif", Font.BOLD, 80));
@@ -62,7 +59,6 @@ public class WordleGuessingGameGUI implements GameObserver
         mainFrame.pack();
         mainFrame.setVisible(true);
 
-        
     }
 
     public void gameOver()
@@ -88,7 +84,7 @@ public class WordleGuessingGameGUI implements GameObserver
             controller.incrementGamesPlayed();
             //StatsGUI statsGUI = new StatsGUI();
             //statsGUI.setVisible(true);
-            JOptionPane.showMessageDialog(mainFrame, "You Win! The word was " + hiddenWord.getHiddenWord() + ".\n" + "Games Played: " + 
+            JOptionPane.showMessageDialog(mainFrame, "You Lose! The word was " + hiddenWord.getHiddenWord() + ".\n" + "Games Played: " + 
             this.gameStatistics.getGamesPlayed() + "\n"+ "Games Won: " + this.gameStatistics.getGamesWon() + "\n"+ "Win Rate: " + this.gameStatistics.getWinPercentage() + "\n",
             "Game over", JOptionPane.INFORMATION_MESSAGE);
          //if you dont want to use the file, i can incorporate these methods into the code
@@ -98,7 +94,6 @@ public class WordleGuessingGameGUI implements GameObserver
         System.exit(0);
     }
 
-    
     public void update()
     {
         ArrayList<Character> letters = hiddenWord.getGuessedLetters();
