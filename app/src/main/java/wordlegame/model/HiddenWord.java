@@ -17,9 +17,14 @@ public class HiddenWord
     boolean valid = false;
     int guesses;
     boolean winner;
+    
+    //i added this to track games, we might not need it w your state stuff
+    private int gamesWon; 
 
     public HiddenWord()
     {
+        //also aadded this to track, i can delete if not needed 
+        this.gamesWon = 0; 
     }
 
     public void setHiddenWord(String hiddenWord)
@@ -194,4 +199,17 @@ public class HiddenWord
             observers.get(i).update();
         }
     }
+
+    //added this method for wordleguessinggamegui
+    public int getGamesWon() {
+        return gamesWon;
+    }
+
+    public void incrementGamesWon()
+    {
+        this.gamesWon++;
+    }
+
+    
+    
 }

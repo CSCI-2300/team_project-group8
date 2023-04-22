@@ -4,6 +4,9 @@ import wordlegame.GameObserver;
 
 import wordlegame.controller.Controller;
 import wordlegame.model.HiddenWord;
+import wordlegame.view.StatsGUI;
+
+
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -17,6 +20,7 @@ public class WordleGuessingGameGUI implements GameObserver
     private Board gameBoard;
     private UserGuessBox userGuessBox;
 
+
     Controller controller;
     HiddenWord hiddenWord;
 
@@ -25,6 +29,8 @@ public class WordleGuessingGameGUI implements GameObserver
         this.controller = controller;
         this.hiddenWord = hiddenWord;
         hiddenWord.register(this);
+
+
 
         mainFrame = new JFrame("Wordle");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,24 +62,32 @@ public class WordleGuessingGameGUI implements GameObserver
         
     }
 
-    public void gameOver() 
+    public void gameOver()
     {
         if (hiddenWord.isWinner())
         {
-
             StatsGUI statsGUI = new StatsGUI();
             statsGUI.setVisible(true);
             JOptionPane.showMessageDialog(mainFrame, "You Win! The word was " + hiddenWord.getHiddenWord() + ".", "Game over", JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
-        }
+        //if you dont want to use the file, i can incorporate these methods into the code
+        //double percentage = (double) controller.getGamesWon() / controller.getTotalGames() * 100.0;
+        //statsGUI.updateStats(controller.getGamesWon(), controller.getTotalGames(), percentage);
+
+            hiddenWord.incrementGamesWon();   // Increment games won
+
+    }
         else
         {
             StatsGUI statsGUI = new StatsGUI();
             statsGUI.setVisible(true);
             JOptionPane.showMessageDialog(mainFrame, "You Lose! The word was " + hiddenWord.getHiddenWord() + ".", "Game over", JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
+         //if you dont want to use the file, i can incorporate these methods into the code
+        //double percentage = (double) controller.getGamesWon() / controller.getTotalGames() * 100.0;
+        //statsGUI.updateStats(controller.getGamesWon(), controller.getTotalGames(), percentage);
         }
+        System.exit(0);
     }
+
     
     public void update()
     {

@@ -9,6 +9,9 @@ public class StatsGUI extends JFrame
     private JLabel gamesWonLabel; 
     private JLabel totalGamesLabel;
     private JLabel percentageLabel;
+    private int gamesWon = 0;
+    private int totalGamesPlayed = 0;
+
 
     public StatsGUI()
     {
@@ -36,7 +39,7 @@ public class StatsGUI extends JFrame
         mainPanel.add(percentageLabel);
 
         /* 
-        //should we add this?
+        //should we add this? i havent done anything with it atp
         JButton resetButton = new JButton("Reset Stats");
         resetButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainPanel.add(resetButton);
@@ -69,5 +72,16 @@ public class StatsGUI extends JFrame
         updateTotalGames(totalGames);
         updatePercentage(percentage);
     }
+
+    public int getGamesWon() 
+    {
+        return gamesWon;
+    }
+    
+    public int getTotalGamesPlayed() 
+    {
+        return totalGamesPlayed;
+    }
+    
 
 }
