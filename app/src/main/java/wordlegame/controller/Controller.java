@@ -5,6 +5,7 @@ import wordlegame.view.CategorySelectionGUI;
 import wordlegame.view.WordleGuessingGameGUI;
 import wordlegame.GameController;
 import wordlegame.model.RandomWordGenerator;
+import wordlegame.model.GameStatistics;
 
 public class Controller implements GameController
 {
@@ -14,11 +15,13 @@ public class Controller implements GameController
     String fileName;
     RandomWordGenerator generator;
     String randomWord;
+    GameStatistics gameStatistics;
 
     public Controller()
     {
         this.hiddenWord = new HiddenWord(); 
         this.homeScreen = new CategorySelectionGUI(this);
+        this.gameStatistics = new GameStatistics();
     }
 
     public void getCategory(String category)
@@ -41,7 +44,7 @@ public class Controller implements GameController
 
         hiddenWord.setHiddenWord(this.randomWord);
 
-        this.board = new WordleGuessingGameGUI(this, hiddenWord);
+        this.board = new WordleGuessingGameGUI(this, hiddenWord, this.gameStatistics);
     }
 
     public void getUserGuess(String userGuess)
@@ -49,5 +52,13 @@ public class Controller implements GameController
         this.hiddenWord.checkGuess(userGuess);
     }
 
-    
+    public void incrementGamesPlayed()
+    {
+        gameStatistics.incrementGamesPlayed();
+    }
+
+    public void incrementGamesWon()
+    {
+        gameStatistics.incrementGamesWon();
+    }
 }

@@ -5,6 +5,7 @@ import wordlegame.GameObserver;
 import wordlegame.controller.Controller;
 import wordlegame.model.HiddenWord;
 import wordlegame.view.StatsGUI;
+import wordlegame.model.GameStatistics;
 
 
 
@@ -23,11 +24,13 @@ public class WordleGuessingGameGUI implements GameObserver
 
     Controller controller;
     HiddenWord hiddenWord;
+    GameStatistics gameStatistics;
 
-    public WordleGuessingGameGUI(Controller controller, HiddenWord hiddenWord)
+    public WordleGuessingGameGUI(Controller controller, HiddenWord hiddenWord, GameStatistics gameStatistics)
     {
         this.controller = controller;
         this.hiddenWord = hiddenWord;
+        this.gameStatistics = gameStatistics;
         hiddenWord.register(this);
 
 
@@ -66,21 +69,28 @@ public class WordleGuessingGameGUI implements GameObserver
     {
         if (hiddenWord.isWinner())
         {
-            StatsGUI statsGUI = new StatsGUI();
-            statsGUI.setVisible(true);
-            JOptionPane.showMessageDialog(mainFrame, "You Win! The word was " + hiddenWord.getHiddenWord() + ".", "Game over", JOptionPane.INFORMATION_MESSAGE);
+            controller.incrementGamesPlayed();
+            controller.incrementGamesWon();
+            //StatsGUI statsGUI = new StatsGUI();
+            //statsGUI.setVisible(true);
+            JOptionPane.showMessageDialog(mainFrame, "You Win! The word was " + hiddenWord.getHiddenWord() + ".\n" + "Games Played: " + 
+            this.gameStatistics.getGamesPlayed() + "\n"+ "Games Won: " + this.gameStatistics.getGamesWon() + "\n"+ "Win Rate: " + this.gameStatistics.getWinPercentage() + "\n",
+             "Game over", JOptionPane.INFORMATION_MESSAGE);
         //if you dont want to use the file, i can incorporate these methods into the code
         //double percentage = (double) controller.getGamesWon() / controller.getTotalGames() * 100.0;
         //statsGUI.updateStats(controller.getGamesWon(), controller.getTotalGames(), percentage);
 
-            hiddenWord.incrementGamesWon();   // Increment games won
+            //hiddenWord.incrementGamesWon();   // Increment games won
 
     }
         else
         {
-            StatsGUI statsGUI = new StatsGUI();
-            statsGUI.setVisible(true);
-            JOptionPane.showMessageDialog(mainFrame, "You Lose! The word was " + hiddenWord.getHiddenWord() + ".", "Game over", JOptionPane.INFORMATION_MESSAGE);
+            controller.incrementGamesPlayed();
+            //StatsGUI statsGUI = new StatsGUI();
+            //statsGUI.setVisible(true);
+            JOptionPane.showMessageDialog(mainFrame, "You Win! The word was " + hiddenWord.getHiddenWord() + ".\n" + "Games Played: " + 
+            this.gameStatistics.getGamesPlayed() + "\n"+ "Games Won: " + this.gameStatistics.getGamesWon() + "\n"+ "Win Rate: " + this.gameStatistics.getWinPercentage() + "\n",
+            "Game over", JOptionPane.INFORMATION_MESSAGE);
          //if you dont want to use the file, i can incorporate these methods into the code
         //double percentage = (double) controller.getGamesWon() / controller.getTotalGames() * 100.0;
         //statsGUI.updateStats(controller.getGamesWon(), controller.getTotalGames(), percentage);
