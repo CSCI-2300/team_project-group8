@@ -43,14 +43,17 @@ public class CategorySelectionGUI implements ActionListener
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.BLACK);
-        buttonPanel.setPreferredSize(new Dimension(300, 300));
-        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 200, 10));
+        buttonPanel.setPreferredSize(new Dimension(500, 500));
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 10));
 
         JButton animalsButton = new JButton("Animals");
+        animalsButton.setPreferredSize(new Dimension(200, 30));
         categoryButtons.add(animalsButton);
         JButton citiesButton = new JButton("Cities");
+        citiesButton.setPreferredSize(new Dimension(200, 30));
         categoryButtons.add(citiesButton);
         JButton countriesButton = new JButton("Countries");
+        countriesButton.setPreferredSize(new Dimension(200, 30));
         categoryButtons.add(countriesButton);
 
         for (JButton categoryButton : categoryButtons)
