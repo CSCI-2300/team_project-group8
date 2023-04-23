@@ -32,6 +32,7 @@ public class WordleGuessingGameGUI implements GameObserver
         this.hiddenWord = hiddenWord;
         this.gameStatistics = gameStatistics;
         hiddenWord.register(this);
+        controller.loadStatistics();
 
         mainFrame = new JFrame("Wordle");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,8 +70,10 @@ public class WordleGuessingGameGUI implements GameObserver
             controller.incrementGamesWon();
             //StatsGUI statsGUI = new StatsGUI();
             //statsGUI.setVisible(true);
+            controller.uploadStatistics();
             JOptionPane.showMessageDialog(mainFrame, "You Win! The word was " + hiddenWord.getHiddenWord() + ".\n" + "Games Played: " + 
-            this.gameStatistics.getGamesPlayed() + "\n"+ "Games Won: " + this.gameStatistics.getGamesWon() + "\n"+ "Win Rate: " + this.gameStatistics.getWinPercentage() + "\n",
+            this.gameStatistics.getGamesPlayed() + "\n"+ "Games Won: " + this.gameStatistics.getGamesWon() + "\n"+ "Win Rate: " + 
+            String.format("%.2f",this.gameStatistics.getWinPercentage()) + "%",
              "Game over", JOptionPane.INFORMATION_MESSAGE);
         //if you dont want to use the file, i can incorporate these methods into the code
         //double percentage = (double) controller.getGamesWon() / controller.getTotalGames() * 100.0;
@@ -84,8 +87,10 @@ public class WordleGuessingGameGUI implements GameObserver
             controller.incrementGamesPlayed();
             //StatsGUI statsGUI = new StatsGUI();
             //statsGUI.setVisible(true);
+            controller.uploadStatistics();
             JOptionPane.showMessageDialog(mainFrame, "You Lose! The word was " + hiddenWord.getHiddenWord() + ".\n" + "Games Played: " + 
-            this.gameStatistics.getGamesPlayed() + "\n"+ "Games Won: " + this.gameStatistics.getGamesWon() + "\n"+ "Win Rate: " + this.gameStatistics.getWinPercentage() + "\n",
+            this.gameStatistics.getGamesPlayed() + "\n"+ "Games Won: " + this.gameStatistics.getGamesWon() + "\n"+ "Win Rate: " + 
+            String.format("%.2f",this.gameStatistics.getWinPercentage()) + "%",
             "Game over", JOptionPane.INFORMATION_MESSAGE);
          //if you dont want to use the file, i can incorporate these methods into the code
         //double percentage = (double) controller.getGamesWon() / controller.getTotalGames() * 100.0;
