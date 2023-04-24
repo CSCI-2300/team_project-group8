@@ -205,11 +205,19 @@ public class HiddenWord
         return gamesWon;
     }
 
+/*
     public void incrementGamesWon()
     {
         this.gamesWon++;
     }
 
-    
-    
+    public int gamesPlayed()
+    {
+
+    }
+
+    public incrementGamesPlayed()
+    {
+
+    } */
 }
