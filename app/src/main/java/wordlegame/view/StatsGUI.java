@@ -12,7 +12,6 @@ public class StatsGUI extends JFrame
     private int gamesWon = 0;
     private int totalGamesPlayed = 0;
 
-
     public StatsGUI()
     {
         super("Game Statistics"); 
@@ -55,7 +54,7 @@ public class StatsGUI extends JFrame
 
     public void updatePercentage(double percentage)
     {
-        percentageLabel.setText("Percentage of Wins: " + String.format("%.2f", percentage) + "%"); //the .2f is for 2 decimal points btw
+        percentageLabel.setText("Percentage of Wins: " + String.format("%.2f", percentage) + "%"); 
     }
 
     public void updateStats(int gamesWon, int totalGames, double percentage)

@@ -17,13 +17,11 @@ public class HiddenWord
     boolean valid = false;
     int guesses;
     boolean winner;
-    
-    //i added this to track games, we might not need it w your state stuff
+
     private int gamesWon; 
 
     public HiddenWord()
     {
-        //also aadded this to track, i can delete if not needed 
         this.gamesWon = 0; 
     }
 
@@ -116,7 +114,7 @@ public class HiddenWord
                 if (occurrences > 0 && this.colors.get(i) != "GREEN") 
                 {
                     this.colors.set(i, "YELLOW");
-                    this.dictionary.put(guessedLetter, occurrences - 1); //one occurance has been used
+                    this.dictionary.put(guessedLetter, occurrences - 1); 
                 } 
             } 
         }
