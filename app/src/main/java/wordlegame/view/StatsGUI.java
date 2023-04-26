@@ -38,17 +38,9 @@ public class StatsGUI extends JFrame
         percentageLabel.setFont(new Font("Serif", Font.PLAIN, 20));
         mainPanel.add(percentageLabel);
 
-        /* 
-        //should we add this? i havent done anything with it atp
-        JButton resetButton = new JButton("Reset Stats");
-        resetButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        mainPanel.add(resetButton);
-        */
-
         add(mainPanel);
         pack();
         setVisible(true);
-
     }
 
     public void updateGamesWon(int gamesWon)
@@ -82,6 +74,4 @@ public class StatsGUI extends JFrame
     {
         return totalGamesPlayed;
     }
-    
-
 }

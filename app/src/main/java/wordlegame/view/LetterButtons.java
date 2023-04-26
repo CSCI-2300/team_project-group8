@@ -63,5 +63,3 @@ public class LetterButtons extends JPanel
         this.repaint();
    }
 }
-
-

@@ -200,24 +200,7 @@ public class HiddenWord
         }
     }
 
-    //added this method for wordleguessinggamegui
     public int getGamesWon() {
         return gamesWon;
     }
-
-/*
-    public void incrementGamesWon()
-    {
-        this.gamesWon++;
-    }
-
-    public int gamesPlayed()
-    {
-
-    }
-
-    public incrementGamesPlayed()
-    {
-
-    } */
 }

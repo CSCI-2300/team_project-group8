@@ -31,7 +31,6 @@ public class Board extends JPanel
 
    public void displayWord(ArrayList<Character> letters, ArrayList<String> colors, int attempts)
    {
-
         for (int i = 0; i < letters.size(); i++) 
         {
             char letter = letters.get(i);
