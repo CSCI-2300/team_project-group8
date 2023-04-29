@@ -58,26 +58,60 @@ public class WordleGuessingGameGUI implements GameObserver
 
     public void gameOver()
     {
+        int chosenButton = 0;
+        StatsGUI statsPage = new StatsGUI();
+        Object[] options = { "Quit", "Reset Statistics" };
+        statsPage.setPreferredSize(new Dimension(300, 215));
+
         if (hiddenWord.isWinner())
         {
             controller.incrementGamesPlayed();
             controller.incrementGamesWon();
             controller.uploadStatistics();
-            JOptionPane.showMessageDialog(mainFrame, "You Win! The word was " + hiddenWord.getHiddenWord() + ".\n" + "Games Played: " + 
-            this.gameStatistics.getGamesPlayed() + "\n"+ "Games Won: " + this.gameStatistics.getGamesWon() + "\n"+ "Win Rate: " + 
-            String.format("%.2f",this.gameStatistics.getWinPercentage()) + "%",
-             "Game over", JOptionPane.INFORMATION_MESSAGE);
+            statsPage.updateCurrentGameLabel("won", hiddenWord.getHiddenWord());
+            statsPage.updateStats(gameStatistics.getGamesWon(), gameStatistics.getGamesPlayed(), gameStatistics.getWinPercentage());
+            chosenButton = JOptionPane.showOptionDialog(mainFrame,
+                        statsPage,
+                        "Game Statistics", 
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE,
+                        null, 
+                        options,
+                        options[0]);
     }
         else
         {
             controller.incrementGamesPlayed();
             controller.uploadStatistics();
-            JOptionPane.showMessageDialog(mainFrame, "You Lose! The word was " + hiddenWord.getHiddenWord() + ".\n" + "Games Played: " + 
-            this.gameStatistics.getGamesPlayed() + "\n"+ "Games Won: " + this.gameStatistics.getGamesWon() + "\n"+ "Win Rate: " + 
-            String.format("%.2f",this.gameStatistics.getWinPercentage()) + "%",
-            "Game over", JOptionPane.INFORMATION_MESSAGE);
+            statsPage.updateCurrentGameLabel("lost", hiddenWord.getHiddenWord());
+            statsPage.updateStats(gameStatistics.getGamesWon(), gameStatistics.getGamesPlayed(), gameStatistics.getWinPercentage());
+            chosenButton = JOptionPane.showOptionDialog(mainFrame,
+                        statsPage,
+                        "Game Statistics", 
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE,
+                        null, 
+                        options,
+                        options[0]);
         }
-        System.exit(0);
+
+        if (chosenButton == JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
+
+        else if (chosenButton == JOptionPane.NO_OPTION)
+        {
+            gameStatistics.resetStats();
+            gameStatistics.uploadStatistics();
+            System.exit(0);
+        }
+
+        else 
+        {
+            System.exit(0);
+        }
+
     }
 
     public void update()

@@ -89,6 +89,12 @@ public class GameStatistics
         }
     }
 
+    public void resetStats()
+    {
+        this.gamesPlayed = 0;
+        this.gamesWon = 0;
+    }
+
     public void uploadStatistics()
     {
         try
