@@ -78,7 +78,7 @@ public class WordleGuessingGameGUI implements GameObserver
                         null, 
                         options,
                         options[0]);
-    }
+        }
         else
         {
             controller.incrementGamesPlayed();

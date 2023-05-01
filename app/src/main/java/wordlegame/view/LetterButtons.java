@@ -39,11 +39,11 @@ public class LetterButtons extends JPanel
       }
       else if (color.equals("YELLOW"))
       {
-         this.setBackground(Color.YELLOW);
+         this.setBackground(new Color(0xE3, 0xC5, 0x65));
       }
       else
       {
-         this.setBackground(Color.GREEN);
+         this.setBackground(new Color(0x55, 0x6B, 0x2F));
       }
       this.repaint();
    }
