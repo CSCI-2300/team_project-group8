@@ -15,7 +15,7 @@ public class GameStatistics
     public GameStatistics()
     {
         this.gamesPlayed = 0;
-        this.gamesPlayed = 0;
+        this.gamesWon = 0;
     }
 
     public int getGamesWon() {
