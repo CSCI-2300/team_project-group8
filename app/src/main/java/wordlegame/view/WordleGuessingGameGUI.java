@@ -61,7 +61,7 @@ public class WordleGuessingGameGUI implements GameObserver
     {
         int chosenButton = 0;
         StatsGUI statsPage = new StatsGUI();
-        Object[] options = { "Quit", "Reset Statistics" };
+        Object[] options = { "Quit", "Reset Statistics", "Play Again" };
         statsPage.setPreferredSize(new Dimension(300, 215));
 
         if (hiddenWord.isWinner())
@@ -106,6 +106,13 @@ public class WordleGuessingGameGUI implements GameObserver
             gameStatistics.resetStats();
             gameStatistics.uploadStatistics();
             System.exit(0);
+        }
+
+        else if (chosenButton == JOptionPane.CANCEL_OPTION)
+        {
+            this.mainFrame.setVisible(false);
+            this.mainFrame.dispose();
+            Controller controllerPt2 = new Controller();
         }
 
         else 
