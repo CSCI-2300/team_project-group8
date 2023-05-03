@@ -6,15 +6,21 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Board extends JPanel
+public class Board extends JPanel implements ActionListener
 {
     JFrame mainFrame;
     private JPanel mainPanel;
     ArrayList<LetterButtons> letterButtons;
+    Timer timer;
+    ArrayList<Character> letters;
+    ArrayList<String> colors;
+    int attempts;
+    int count;
 
     public Board() 
     {
         letterButtons = new ArrayList<LetterButtons>();
+        count = 0;
 
         this.setPreferredSize(new Dimension(500,500));
         this.setBackground(Color.BLACK);
@@ -27,18 +33,31 @@ public class Board extends JPanel
             this.letterButtons.add(letterButton); 
             
         }
+
+    timer = new Timer(200,this);
     }
 
    public void displayWord(ArrayList<Character> letters, ArrayList<String> colors, int attempts)
    {
-        for (int i = 0; i < letters.size(); i++) 
-        {
-            char letter = letters.get(i);
-            String color = colors.get(i);
-            String stringLetter =String.valueOf(letter);
-            letterButtons.get(i+5*(attempts-1)).setText(stringLetter);
-            letterButtons.get(i+5*(attempts-1)).setColor(color);
-        }
+        this.letters = letters;
+        this.colors = colors;
+        this.attempts = attempts;
+        count = 0; 
+        timer.start();
         this.repaint();
    } 
+
+   public void actionPerformed(ActionEvent e)
+   {
+        char letter = letters.get(count);
+        String color = colors.get(count);
+        String stringLetter =String.valueOf(letter);
+        letterButtons.get(count+5*(attempts-1)).setText(stringLetter);
+        letterButtons.get(count+5*(attempts-1)).setColor(color);
+        count++;
+        if (count == 5)
+        {
+            timer.stop();
+        }
+   }
 }

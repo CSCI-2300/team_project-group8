@@ -41,9 +41,10 @@ public class WordleGuessingGameGUI implements GameObserver
         title.setFont(new Font("Serif", Font.BOLD, 80));
         title.setForeground(Color.WHITE);
 
+        userGuessBox = new UserGuessBox(controller);
+
         gameBoard = new Board();
         mainPanel.add(gameBoard);
-        userGuessBox = new UserGuessBox(controller);
 
         mainPanel.add(title, BorderLayout.NORTH);
         mainPanel.add(gameBoard, BorderLayout.CENTER);
@@ -122,6 +123,7 @@ public class WordleGuessingGameGUI implements GameObserver
         if (hiddenWord.getGuessStatus() && hiddenWord.getInCategory())
         {   
             gameBoard.displayWord(letters,colors,guesses);
+
             if (hiddenWord.isGameOver())
             {
                 userGuessBox.setVisible(false);
