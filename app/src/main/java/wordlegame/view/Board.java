@@ -16,9 +16,11 @@ public class Board extends JPanel implements ActionListener
     ArrayList<String> colors;
     int attempts;
     int count;
+    UserGuessBox userGuessBox;
 
-    public Board() 
+    public Board(UserGuessBox userGuessBox) 
     {
+        this.userGuessBox = userGuessBox;
         letterButtons = new ArrayList<LetterButtons>();
         count = 0;
 
@@ -44,6 +46,7 @@ public class Board extends JPanel implements ActionListener
         this.attempts = attempts;
         count = 0; 
         timer.start();
+        userGuessBox.disableAll();
         this.repaint();
    } 
 
@@ -58,6 +61,7 @@ public class Board extends JPanel implements ActionListener
         if (count == 5)
         {
             timer.stop();
+            userGuessBox.enableAll();
         }
    }
 }

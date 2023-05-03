@@ -43,7 +43,7 @@ public class WordleGuessingGameGUI implements GameObserver
 
         userGuessBox = new UserGuessBox(controller);
 
-        gameBoard = new Board();
+        gameBoard = new Board(userGuessBox);
         mainPanel.add(gameBoard);
 
         mainPanel.add(title, BorderLayout.NORTH);

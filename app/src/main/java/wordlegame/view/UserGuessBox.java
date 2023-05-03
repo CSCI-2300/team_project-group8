@@ -55,6 +55,18 @@ public class UserGuessBox extends JPanel implements ActionListener, KeyListener
         controller.getUserGuess(guess);
     }
 
+    public void enableAll()
+    {
+        this.enterButton.setEnabled(true);
+        this.wordleGuessBox.setEnabled(true);
+    }
+
+    public void disableAll()
+    {
+        this.enterButton.setEnabled(false);
+        this.wordleGuessBox.setEnabled(false);
+    }
+
     @Override
     public void actionPerformed(ActionEvent event) 
     {
