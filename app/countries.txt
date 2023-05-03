@@ -1,6 +1,5 @@
 japan
 china
-france
 italy
 spain
 chile
