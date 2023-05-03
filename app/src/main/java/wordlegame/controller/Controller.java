@@ -44,7 +44,7 @@ public class Controller implements GameController
         this.generator = new RandomWordGenerator(this.fileName);
         this.randomWord = generator.getRandomWord();
 
-        hiddenWord.setHiddenWord(this.randomWord);
+        hiddenWord.setHiddenWord(this.randomWord, this.fileName);
 
         this.board = new WordleGuessingGameGUI(this, hiddenWord, this.gameStatistics);
     }

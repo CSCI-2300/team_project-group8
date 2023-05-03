@@ -73,12 +73,10 @@ public class GameStatistics
                 if (lineNumber == 0)
                 {
                     this.gamesPlayed = Integer.parseInt(scanner.nextLine());
-                    System.out.println(this.gamesPlayed);
                 }
                 else 
                 {
                     this.gamesWon = Integer.parseInt(scanner.nextLine());
-                    System.out.println(this.gamesWon);
                 }
                 lineNumber++;
             }

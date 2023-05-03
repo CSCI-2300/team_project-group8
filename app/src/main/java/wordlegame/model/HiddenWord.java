@@ -2,6 +2,10 @@ package wordlegame.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 import wordlegame.GameObserver;
 
@@ -10,11 +14,13 @@ public class HiddenWord
     ArrayList<GameObserver> observers = new ArrayList<GameObserver>();
 
     String hiddenWord;
+    String fileName;
     String guessedWord;
     HashMap<Character, Integer> dictionary;
     ArrayList<Character> guessedLetters;
     ArrayList<String> colors;
     boolean valid = false;
+    boolean inCategory = false;
     int guesses;
     boolean winner;
 
@@ -25,10 +31,10 @@ public class HiddenWord
         this.gamesWon = 0; 
     }
 
-    public void setHiddenWord(String hiddenWord)
+    public void setHiddenWord(String hiddenWord, String fileName)
     {
-        System.out.println(hiddenWord);
         this.hiddenWord = hiddenWord.toUpperCase();
+        this.fileName = fileName;
         guesses = 0;
         this.createDictionary();
     }
@@ -67,6 +73,12 @@ public class HiddenWord
     {
         this.validateGuess(guessedWord);
         if (!valid)
+        {
+            this.notifyObservers();
+            return;
+        }
+        this.inCategory(guessedWord);
+        if (!inCategory)
         {
             this.notifyObservers();
             return;
@@ -200,5 +212,30 @@ public class HiddenWord
 
     public int getGamesWon() {
         return gamesWon;
+    }
+
+    public void inCategory(String guessedWord)
+    {
+        try 
+        {
+            Scanner scanner = new Scanner(new File(this.fileName));
+            while (scanner.hasNextLine())
+            {
+                String newWord = scanner.nextLine().toUpperCase();
+                if (newWord.equals(guessedWord.toUpperCase()))
+                {
+                    inCategory = true;
+                }
+            }
+        }
+        catch (FileNotFoundException error)
+        {
+            System.out.println("File could not be read");
+        }
+    }
+
+    public boolean getInCategory()
+    {
+        return this.inCategory;
     }
 }

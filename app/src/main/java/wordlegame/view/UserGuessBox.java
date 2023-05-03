@@ -53,7 +53,6 @@ public class UserGuessBox extends JPanel implements ActionListener, KeyListener
     public void passGuess(String guess)
     {
         controller.getUserGuess(guess);
-        System.out.println(guess);
     }
 
     @Override
