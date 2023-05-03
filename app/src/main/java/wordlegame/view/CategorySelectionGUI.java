@@ -49,7 +49,7 @@ public class CategorySelectionGUI implements ActionListener
         JButton animalsButton = new JButton("Animals");
         animalsButton.setPreferredSize(new Dimension(200, 30));
         categoryButtons.add(animalsButton);
-        JButton citiesButton = new JButton("Cities");
+        JButton citiesButton = new JButton("Capital Cities");
         citiesButton.setPreferredSize(new Dimension(200, 30));
         categoryButtons.add(citiesButton);
         JButton countriesButton = new JButton("Countries");

@@ -36,7 +36,7 @@ public class Controller implements GameController
             case "Countries":
                 this.fileName = "countries.txt";
                 break;
-            case "Cities":
+            case "Capital Cities":
                 this.fileName = "cities.txt";
                 break;
         }
