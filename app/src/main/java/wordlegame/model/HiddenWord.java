@@ -71,6 +71,8 @@ public class HiddenWord
 
     public void checkGuess(String guessedWord)
     {
+        this.valid = false;
+        this.inCategory = false;
         this.validateGuess(guessedWord);
         if (!valid)
         {
