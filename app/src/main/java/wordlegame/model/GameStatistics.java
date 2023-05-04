@@ -18,7 +18,8 @@ public class GameStatistics
         this.gamesWon = 0;
     }
 
-    public int getGamesWon() {
+    public int getGamesWon() 
+    {
         return gamesWon;
     }
 
