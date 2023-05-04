@@ -211,7 +211,8 @@ public class HiddenWord
         }
     }
 
-    public int getGamesWon() {
+    public int getGamesWon() 
+    {
         return gamesWon;
     }
 
