@@ -3,9 +3,7 @@ package wordlegame.view;
 import wordlegame.GameObserver;
 import wordlegame.controller.Controller;
 import wordlegame.model.HiddenWord;
-import wordlegame.view.StatsGUI;
 import wordlegame.model.GameStatistics;
-
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;

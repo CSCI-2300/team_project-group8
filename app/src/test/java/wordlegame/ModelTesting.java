@@ -4,13 +4,9 @@
 package wordlegame;
 import wordlegame.model.HiddenWord;
 import wordlegame.model.GameStatistics;
-
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue; 
-import java.util.ArrayList;
-
 
 import org.junit.Test;
 
@@ -104,7 +100,6 @@ public class ModelTesting
         assertTrue(hiddenWord.getGuessStatus());
 
     }
-    
 
     @Test
     public void testCheckGreen() 
@@ -120,8 +115,6 @@ public class ModelTesting
         assertTrue(hiddenWord.getColors().get(4).equals("GREEN")); 
 
     }
-
-    
 
     @Test
     public void testCheckYellow() 

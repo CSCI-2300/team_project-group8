@@ -1,6 +1,5 @@
 package wordlegame;
 
-import wordlegame.model.HiddenWord;
 import wordlegame.controller.Controller;
 
 public class Driver 

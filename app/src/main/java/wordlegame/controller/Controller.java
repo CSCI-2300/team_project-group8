@@ -7,7 +7,6 @@ import wordlegame.GameController;
 import wordlegame.model.RandomWordGenerator;
 import wordlegame.model.GameStatistics;
 
-import java.io.IOException;
 
 public class Controller implements GameController
 {

@@ -5,7 +5,6 @@ import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.event.*;
 import java.text.ParseException;
-
 import wordlegame.controller.Controller;
 
 public class UserGuessBox extends JPanel implements ActionListener, KeyListener

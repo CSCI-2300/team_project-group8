@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 public class Board extends JPanel implements ActionListener
 {
     JFrame mainFrame;
-    private JPanel mainPanel;
     ArrayList<LetterButtons> letterButtons;
     Timer timer;
     ArrayList<Character> letters;
